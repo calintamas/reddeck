@@ -1,0 +1,20 @@
+{
+  "name": "redux-utils",
+  "version": "1.0.0",
+  "description": "A couple of Redux utils that make life easier and less boilerplaty",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test jest"
+  },
+  "keywords": [
+    "redux",
+    "utils"
+  ],
+  "author": "Calin Tamas <calinntamas@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-jest": "^24.8.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^24.8.0"
+  }
+}
