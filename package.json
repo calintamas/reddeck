@@ -1,5 +1,5 @@
 {
-  "name": "redux-utils",
+  "name": "reddeck",
   "version": "1.0.0",
   "description": "A couple of Redux utils that make life easier and less boilerplaty",
   "main": "index.js",
@@ -8,7 +8,9 @@
   },
   "keywords": [
     "redux",
-    "utils"
+    "utils",
+    "react",
+    "react-native"
   ],
   "author": "Calin Tamas <calinntamas@gmail.com>",
   "license": "MIT",

@@ -1,17 +1,19 @@
-# redux-utils
+# reddeck
 
 These are a couple of `redux` utils that I wrote to make my life easier and reduce boilerplate.
 
+Etymology: redux + deck
+
 ## Install
 ```
-yarn add redux-utils
+yarn add reddeck
 ```
 
 ## Usage
 ### actionCreator
 The `actionCreator` function returns an `action` object with `type` and `payload`.
 ```js
-import { actionCreator } from 'redux-utils'
+import { actionCreator } from 'reddeck'
 
 const setName = actionCreator('SET_NAME');
 ```
@@ -25,7 +27,7 @@ dispatch(setName('Serena'));
 Similar to the `actionCreator` function, but instead of returning a simple `action`, it returns an object with 3 keys: `pending`, `success` and `error`.
 Every key has a simple `action` as associated value.
 ```js
-import { asyncActionCreator } from 'redux-utils'
+import { asyncActionCreator } from 'reddeck'
 
 const getData = asyncActionCreator(
   'GET_DATA_PENDING',
@@ -51,7 +53,7 @@ const get = async () => {
 First parameter is a string containing all the types. Spaces are ignored.
 The second parameter specifies the options and it's optional.
 ```js
-import { typeCreator } from 'redux-utils'
+import { typeCreator } from 'reddeck'
 
 const options = {
   prefix: 'app/'
@@ -78,7 +80,7 @@ console.log(types)
 
 ### apiStateCreator
 ```js
-import { apiStateCreator } from 'redux-utils'
+import { apiStateCreator } from 'reddeck'
 
 const api = apiStateCreator();
 console.log(api)
