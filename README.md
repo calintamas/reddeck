@@ -20,7 +20,7 @@ const setName = actionCreator('SET_NAME');
 
 Then, I can use the action creator to `dispatch` and `action`.
 ```js
-dispatch(setName('Serena'));
+dispatch(setName('Serena')); // { type: 'SET_NAME', payload: 'Serena' }
 ```
 
 ### asyncActionCreator
@@ -44,7 +44,7 @@ const get = async () => {
     const data = await getDataFromAPI();
     dispatch(getData.success(data)); // { type: 'GET_DATA_SUCCESS', payload: data }
   } catch(err) {
-    dispatch(getData.error(err)); // { type: 'GET_DATA_ERROR', payload: data }
+    dispatch(getData.error(err)); // { type: 'GET_DATA_ERROR', payload: err }
   }
 }
 ```
