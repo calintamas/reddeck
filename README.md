@@ -1,6 +1,8 @@
 # reddeck
+![npm version](https://img.shields.io/npm/v/reddeck)
+![npm downloads](https://img.shields.io/npm/dt/reddeck)
 
-These are a couple of `redux` utils that I wrote to make my life easier and reduce boilerplate.
+A couple of `redux` utils that I wrote to make my life easier and reduce boilerplate.
 
 Etymology: redux + deck
 
