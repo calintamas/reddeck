@@ -14,6 +14,10 @@
   ],
   "author": "Calin Tamas <calinntamas@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calintamas/reddeck.git"
+  }
   "devDependencies": {
     "babel-jest": "^24.8.0",
     "babel-preset-env": "^1.7.0",
