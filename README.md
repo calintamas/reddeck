@@ -1,6 +1,8 @@
 # reddeck
+![npm version](https://img.shields.io/npm/v/reddeck)
+![npm downloads](https://img.shields.io/npm/dt/reddeck)
 
-These are a couple of `redux` utils that I wrote to make my life easier and reduce boilerplate.
+A couple of `redux` utils that I wrote to make my life easier and reduce boilerplate.
 
 Etymology: redux + deck
 
@@ -20,7 +22,7 @@ const setName = actionCreator('SET_NAME');
 
 Then, I can use the action creator to `dispatch` and `action`.
 ```js
-dispatch(setName('Serena'));
+dispatch(setName('Serena')); // { type: 'SET_NAME', payload: 'Serena' }
 ```
 
 ### asyncActionCreator
@@ -44,7 +46,7 @@ const get = async () => {
     const data = await getDataFromAPI();
     dispatch(getData.success(data)); // { type: 'GET_DATA_SUCCESS', payload: data }
   } catch(err) {
-    dispatch(getData.error(err)); // { type: 'GET_DATA_ERROR', payload: data }
+    dispatch(getData.error(err)); // { type: 'GET_DATA_ERROR', payload: err }
   }
 }
 ```
