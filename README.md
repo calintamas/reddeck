@@ -1,7 +1,10 @@
 # reddeck
 
-![npm version](https://img.shields.io/npm/v/reddeck)
-![npm downloads](https://img.shields.io/npm/dt/reddeck)
+[![npm version](https://img.shields.io/npm/v/reddeck)](https://www.npmjs.com/package/reddeck)
+[![npm downloads](https://img.shields.io/npm/dw/reddeck)](https://www.npmjs.com/package/reddeck)
+![Build](https://github.com/calintamas/reddeck/workflows/tests/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/calintamas/reddeck/badge.svg?branch=master)](https://coveralls.io/github/calintamas/reddeck?branch=master)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 A couple of `redux` utils that I wrote to make my life easier and reduce boilerplate.
 
