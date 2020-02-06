@@ -31,14 +31,14 @@ describe('Create types from strings', () => {
       },
       {
         param1: 'SET_NAME',
-        param2: null,
+        param2: undefined,
         result: {
           SET_NAME: 'SET_NAME'
         }
       },
       {
         param1: '',
-        param2: null,
+        param2: undefined,
         result: {}
       }
     ];
