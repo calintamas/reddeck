@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import { typeCreator } from '../lib/index';
+import { typeCreator } from '../src/index';
 
 describe('Create types from strings', () => {
   it('Returns an object with types', () => {

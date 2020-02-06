@@ -5,8 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "prepare": "npm run build",
-    "test": "npm run build && jest",
-    "test-coverage": "npm run build && jest --coverage",
+    "test": "jest",
+    "test-coverage": "jest --coverage",
     "build": "babel src -d lib"
   },
   "keywords": [

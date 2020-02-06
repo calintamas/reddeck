@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import { asyncActionCreator } from '../lib/index';
+import { asyncActionCreator } from '../src/index';
 
 describe('Create async action from 3 type strings', () => {
   it('Returns an object with 3 actions (pending, success, error)', () => {

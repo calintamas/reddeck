@@ -1,31 +1,28 @@
 /* eslint-env jest */
-import { actionCreator } from '../lib/index';
+import { actionCreator, asyncActionCreator } from '../src/index';
 
 describe('Create action from type string', () => {
-  it('Returns an object with type and payload', () => {
-    const tests = [
-      {
-        input: {
-          type: 'SET_NAME',
-          payload: 'Robert Sapolsky'
-        },
-        output: {
-          type: 'SET_NAME',
-          payload: 'Robert Sapolsky'
-        }
-      },
-      {
-        input: {},
-        output: {
-          type: '',
-          payload: {}
-        }
-      }
-    ];
-
-    tests.forEach((item) => {
-      const { input, output } = item;
-      expect(actionCreator(input.type)(input.payload)).toStrictEqual(output);
+  it('Creates action creator', () => {
+    expect(actionCreator('SET_NAME')('Robert Sapolsky')).toStrictEqual({
+      type: 'SET_NAME',
+      payload: 'Robert Sapolsky'
     });
+  });
+
+  it('Creates action creator, undefined type and payload', () => {
+    expect(actionCreator(undefined)(undefined)).toStrictEqual({
+      type: '',
+      payload: {}
+    });
+  });
+});
+
+describe('Create async action creator', () => {
+  it('Creates async action creator', () => {
+    const ac = asyncActionCreator('GET_PENDING', 'GET_SUCCESS', 'GET_ERROR');
+
+    expect(ac.pending().type).toBe('GET_PENDING');
+    expect(ac.success().type).toBe('GET_SUCCESS');
+    expect(ac.error().type).toBe('GET_ERROR');
   });
 });
