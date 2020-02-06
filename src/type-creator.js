@@ -2,35 +2,32 @@ const trim = (str = '') => {
   try {
     return str.trim();
   } catch (err) {
-    return null
+    return null;
   }
-}
+};
 
 const onlyValidStrings = (str) => {
-  return str != null && str !== ''
-}
+  return str != null && str !== '';
+};
 
 const typeCreator = (typesStr = '', options = {}) => {
   if (!typesStr || !typesStr.length) {
-    return {}
+    return {};
   }
 
-  options = options || {};
-  const prefix = options.prefix || '';
+  const { prefix = '' } = options;
 
   const obj = typesStr
-      .trim()
-      .split(' ')
-      .map(trim)
-      .filter(onlyValidStrings)
-      .reduce((acc, str) => {
-        acc[str] = prefix + str
-        return acc
-      }, {})
+    .trim()
+    .split(' ')
+    .map(trim)
+    .filter(onlyValidStrings)
+    .reduce((acc, str) => {
+      acc[str] = prefix + str;
+      return acc;
+    }, {});
 
-  return obj
-}
+  return obj;
+};
 
-export {
-  typeCreator
-}
+export { typeCreator };

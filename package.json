@@ -1,10 +1,12 @@
 {
   "name": "reddeck",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A couple of Redux utils that make life easier and less boilerplaty",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "NODE_ENV=test jest"
+    "prepare": "npm run build",
+    "test": "NODE_ENV=test jest",
+    "build": "babel src -d lib"
   },
   "keywords": [
     "redux",
@@ -17,10 +19,16 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/calintamas/reddeck.git"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/calintamas/reddeck/issues"
+  },
+  "homepage": "https://github.com/calintamas/reddeck#readme",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
     "babel-jest": "^24.8.0",
-    "babel-preset-env": "^1.7.0",
     "jest": "^24.8.0"
   }
 }

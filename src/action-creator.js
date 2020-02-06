@@ -1,19 +1,16 @@
 const actionCreator = (type = '') => (payload = {}) => {
-  return ({
+  return {
     type,
     payload
-  });
-}
+  };
+};
 
 const asyncActionCreator = (pending = '', success = '', error = '') => {
-  return ({
+  return {
     pending: actionCreator(pending),
     success: actionCreator(success),
     error: actionCreator(error)
-  })
+  };
 };
 
-export {
-  actionCreator,
-  asyncActionCreator
-}
+export { actionCreator, asyncActionCreator };

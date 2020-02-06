@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import { actionCreator } from '../index'
+import { actionCreator } from '../lib/index';
 
 describe('Create action from type string', () => {
   it('Returns an object with type and payload', () => {
@@ -21,11 +21,11 @@ describe('Create action from type string', () => {
           payload: {}
         }
       }
-    ]
+    ];
 
     tests.forEach((item) => {
       const { input, output } = item;
-      expect(actionCreator(input.type)(input.payload)).toStrictEqual(output)
-    })
-  })
-})
+      expect(actionCreator(input.type)(input.payload)).toStrictEqual(output);
+    });
+  });
+});

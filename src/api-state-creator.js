@@ -1,18 +1,16 @@
 const getInitialState = () => {
-  return ({
+  return {
     pending: false,
     error: false,
     success: false
-  })
+  };
 };
 
 const apiStateCreator = (newState = {}) => {
-  return ({
+  return {
     ...getInitialState(),
     ...newState
-  })
-}
+  };
+};
 
-export {
-  apiStateCreator
-}
+export { apiStateCreator };

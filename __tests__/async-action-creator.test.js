@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import { asyncActionCreator } from '../index'
+import { asyncActionCreator } from '../lib/index';
 
 describe('Create async action from 3 type strings', () => {
   it('Returns an object with 3 actions (pending, success, error)', () => {
@@ -25,7 +25,7 @@ describe('Create async action from 3 type strings', () => {
           }
         }
       }
-    ]
+    ];
 
     tests.forEach((item) => {
       const { input, output } = item;
@@ -34,9 +34,9 @@ describe('Create async action from 3 type strings', () => {
         input.success,
         input.error
       );
-      expect(asyncAction.pending()).toStrictEqual(output.pending)
-      expect(asyncAction.success()).toStrictEqual(output.success)
-      expect(asyncAction.error()).toStrictEqual(output.error)
-    })
-  })
-})
+      expect(asyncAction.pending()).toStrictEqual(output.pending);
+      expect(asyncAction.success()).toStrictEqual(output.success);
+      expect(asyncAction.error()).toStrictEqual(output.error);
+    });
+  });
+});

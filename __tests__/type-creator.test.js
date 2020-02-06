@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import { typeCreator } from '../index'
+import { typeCreator } from '../lib/index';
 
 describe('Create types from strings', () => {
   it('Returns an object with types', () => {
@@ -31,21 +31,21 @@ describe('Create types from strings', () => {
       },
       {
         param1: 'SET_NAME',
-        param2:  null,
+        param2: null,
         result: {
           SET_NAME: 'SET_NAME'
         }
       },
       {
         param1: '',
-        param2:  null,
+        param2: null,
         result: {}
       }
-    ]
+    ];
 
     tests.forEach((item) => {
       const { param1, param2, result } = item;
-      expect(typeCreator(param1, param2)).toStrictEqual(result)
-    })
-  })
-})
+      expect(typeCreator(param1, param2)).toStrictEqual(result);
+    });
+  });
+});
