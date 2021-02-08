@@ -1,16 +1,16 @@
-const getInitialState = () => {
+function getInitialState() {
   return {
     pending: false,
     error: false,
     success: false
   };
-};
+}
 
-const apiStateCreator = (newState = {}) => {
+function apiStateCreator(newState = {}) {
   return {
     ...getInitialState(),
     ...newState
   };
-};
+}
 
-export { apiStateCreator };
+module.exports = { apiStateCreator };

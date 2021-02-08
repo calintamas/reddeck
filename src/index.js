@@ -1,5 +1,10 @@
-import { actionCreator, asyncActionCreator } from './action-creator';
-import { typeCreator } from './type-creator';
-import { apiStateCreator } from './api-state-creator';
+const { actionCreator, asyncActionCreator } = require('./action-creator');
+const { typeCreator } = require('./type-creator');
+const { apiStateCreator } = require('./api-state-creator');
 
-export { actionCreator, asyncActionCreator, typeCreator, apiStateCreator };
+module.exports = {
+  actionCreator,
+  asyncActionCreator,
+  typeCreator,
+  apiStateCreator
+};

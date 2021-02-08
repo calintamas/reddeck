@@ -1,16 +1,12 @@
-const trim = (str = '') => {
-  try {
-    return str.trim();
-  } catch (err) {
-    return null;
-  }
-};
+function trim(str = '') {
+  return str.trim();
+}
 
-const onlyValidStrings = (str) => {
+function onlyValidStrings(str) {
   return str != null && str !== '';
-};
+}
 
-const typeCreator = (typesStr = '', options = {}) => {
+function typeCreator(typesStr = '', options = {}) {
   if (!typesStr || !typesStr.length) {
     return {};
   }
@@ -28,6 +24,6 @@ const typeCreator = (typesStr = '', options = {}) => {
     }, {});
 
   return obj;
-};
+}
 
-export { typeCreator };
+module.exports = { typeCreator };

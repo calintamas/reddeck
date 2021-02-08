@@ -1,28 +1,44 @@
 /* eslint-env jest */
-import { actionCreator, asyncActionCreator } from '../src/index';
+const { actionCreator, asyncActionCreator } = require('../src');
 
-describe('Create action from type string', () => {
-  it('Creates action creator', () => {
-    expect(actionCreator('SET_NAME')('Robert Sapolsky')).toStrictEqual({
-      type: 'SET_NAME',
-      payload: 'Robert Sapolsky'
-    });
+describe('test actionCreator', () => {
+  it('Creates a simple action creator', () => {
+    const type = 'SET_NAME';
+    const payload = {
+      foo: 'bar'
+    };
+    const setName = actionCreator(type);
+    expect(setName).toBeInstanceOf(Function);
+
+    const action = setName(payload);
+    expect(action.type).toBe(type);
+    expect(action.payload).toEqual(payload);
   });
 
-  it('Creates action creator, undefined type and payload', () => {
-    expect(actionCreator(undefined)(undefined)).toStrictEqual({
-      type: '',
-      payload: {}
-    });
+  it('Creates a simple action creator, undefined type and payload', () => {
+    const type = undefined;
+    const payload = undefined;
+    const foo = actionCreator(type);
+    expect(foo).toBeInstanceOf(Function);
+
+    const action = foo(payload);
+    expect(action.type).toBe('');
+    expect(action.payload).toEqual({});
   });
 });
 
-describe('Create async action creator', () => {
+describe('test asyncActionCreator', () => {
   it('Creates async action creator', () => {
-    const ac = asyncActionCreator('GET_PENDING', 'GET_SUCCESS', 'GET_ERROR');
+    const get = asyncActionCreator('GET_PENDING', 'GET_SUCCESS', 'GET_ERROR');
+    expect(get.pending().type).toBe('GET_PENDING');
+    expect(get.success().type).toBe('GET_SUCCESS');
+    expect(get.error().type).toBe('GET_ERROR');
+  });
 
-    expect(ac.pending().type).toBe('GET_PENDING');
-    expect(ac.success().type).toBe('GET_SUCCESS');
-    expect(ac.error().type).toBe('GET_ERROR');
+  it('Creates async action creator, undefined values', () => {
+    const get = asyncActionCreator();
+    expect(get.pending().type).toBe('');
+    expect(get.success().type).toBe('');
+    expect(get.error().type).toBe('');
   });
 });

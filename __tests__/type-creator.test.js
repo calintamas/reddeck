@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import { typeCreator } from '../src/index';
+const { typeCreator } = require('../src');
 
 describe('Create types from strings', () => {
   it('Returns an object with types', () => {
@@ -45,7 +45,14 @@ describe('Create types from strings', () => {
 
     tests.forEach((item) => {
       const { param1, param2, result } = item;
-      expect(typeCreator(param1, param2)).toStrictEqual(result);
+      expect(typeCreator(param1, param2)).toEqual(result);
+    });
+  });
+
+  it('has leading and trailing lines that will be trimmed', () => {
+    expect(typeCreator(`  FOO  BAR  `)).toEqual({
+      FOO: 'FOO',
+      BAR: 'BAR'
     });
   });
 });
