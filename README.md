@@ -1,14 +1,12 @@
 # reddeck
 
 [![npm version](https://img.shields.io/npm/v/reddeck)](https://www.npmjs.com/package/reddeck)
-[![npm downloads](https://img.shields.io/npm/dm/reddeck)](https://www.npmjs.com/package/reddeck)
+[![npm downloads](https://img.shields.io/npm/dw/reddeck)](https://www.npmjs.com/package/reddeck)
 [![Build](https://github.com/calintamas/reddeck/workflows/tests/badge.svg)](https://github.com/calintamas/reddeck/actions)
 [![Coverage Status](https://coveralls.io/repos/github/calintamas/reddeck/badge.svg?branch=master)](https://coveralls.io/github/calintamas/reddeck?branch=master)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-A couple of `redux` utils that I wrote to make my life easier and reduce boilerplate.
-
-Etymology: redux + deck
+A couple of `redux` utils I wrote to make my life easier and reduce boilerplate.
 
 ## Install
 
@@ -16,28 +14,22 @@ Etymology: redux + deck
 yarn add reddeck
 ```
 
-## Usage
+## API
 
-### actionCreator
+### actionCreator(type)
 
-The `actionCreator` function returns an `action` object with `type` and `payload`.
+Takes a `string` as parameter, returns an "action creator". An action creator is a function that returns a `{ type, payload }` object when called.
 
 ```js
 import { actionCreator } from 'reddeck';
 
 const setName = actionCreator('SET_NAME');
+console.log(setName('Foo')); // { type: 'SET_NAME', payload: 'Foo' }
 ```
 
-Then, I can use the action creator to `dispatch` and `action`.
+### asyncActionCreator(pendingType, successType, errorType)
 
-```js
-dispatch(setName('Serena')); // { type: 'SET_NAME', payload: 'Serena' }
-```
-
-### asyncActionCreator
-
-Similar to the `actionCreator` function, but instead of returning a simple `action`, it returns an object with 3 keys: `pending`, `success` and `error`.
-Every key has a simple `action` as associated value.
+Similar to the `actionCreator()` function, but instead of returning an action creator, it returns an object with 3 action creators: `pending()`, `success()` and `error()`.
 
 ```js
 import { asyncActionCreator } from 'reddeck';
@@ -55,7 +47,6 @@ It's useful when you want to handle an asynchronous control flow
 const get = async () => {
   try {
     dispatch(getData.pending()); // { type: 'GET_DATA_PENDING', payload: {} }
-
     const data = await getDataFromAPI();
     dispatch(getData.success(data)); // { type: 'GET_DATA_SUCCESS', payload: data }
   } catch (err) {
@@ -64,9 +55,9 @@ const get = async () => {
 };
 ```
 
-### typeCreator
+### typeCreator(types, options)
 
-First parameter is a string containing all the types. Spaces are ignored.
+First param is a `string` containing all the types. Spaces are ignored.
 The second parameter specifies the options and it's optional.
 
 ```js
@@ -98,7 +89,7 @@ console.log(types);
 */
 ```
 
-### apiStateCreator
+### apiStateCreator(newState)
 
 ```js
 import { apiStateCreator } from 'reddeck';
